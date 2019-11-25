@@ -26,6 +26,7 @@ class CollectController extends Controller
         $c_id=$request->input(['c_id'])??'';
         $cou_name=$request->input(['cou_name'])??'';
         $where=[];
+//        dd(1);
         if(!empty($cou_name)){
             $where=[
                 ['collect_r.collect_id','=',$c_id],

@@ -67,7 +67,7 @@
             var u_email=$('#u_email').val();
             var u_pwd=$('#u_pwd').val();
             $.ajax({
-                url:'loginHandel',
+                url:'admin/loginHandel',
                 type:'post',
                 data:{u_email:u_email,u_pwd:u_pwd},
                 dataType:'json',

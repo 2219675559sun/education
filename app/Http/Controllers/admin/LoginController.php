@@ -14,9 +14,12 @@ class LoginController extends Controller
 
     public function loginHandel(Request $request)
     {
+//        dd(1);
         $u_email=$request->input('u_email');
         $u_pwd=$request->input('u_pwd');
+//        dd($u_pwd);
         $data=DB::table('lecturer_user')->where(['name'=>$u_email])->where(['password'=>$u_pwd])->first();
+//        dd($data);
         if(!$data){
             return json_encode(['code'=>2,'msg'=>'登陆失败,用户没有权限']);
         }

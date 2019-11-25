@@ -121,12 +121,12 @@
                         <li>
                             <a class="J_menuItem" href="{{url('exam/exam_list')}}">考试列表</a>
                         </li>
-                        <li>
-                            <a class="J_menuItem" href="{{url('info/bank')}}">题库添加</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="{{url('info/bank_list')}}">题库列表</a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a class="J_menuItem" href="{{url('info/bank')}}">题库添加</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a class="J_menuItem" href="{{url('info/bank_list')}}">题库列表</a>--}}
+{{--                        </li>--}}
                     </ul>
                 <li class="line dk"></li>
 

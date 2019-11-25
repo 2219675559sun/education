@@ -12,14 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin/login/login');
 });
 
 
 //-------------------------admin------------------------------------------------------------
 /**************************************** 后台登录 *************************************/
 //登录视图
-Route::any('/admin/login','admin\LoginController@login');
+//Route::any('/admin/login','admin\LoginController@login');
 Route::any('/admin/loginHandel','admin\LoginController@loginHandel');
 Route::any('/admin/out_session','admin\LoginController@out_session');//退出登录
 

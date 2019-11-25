@@ -16,7 +16,7 @@ class Login
     public function handle($request, Closure $next)
     {
         if(session('lecturer_user_id') == null){
-            return redirect('admin/login');
+            return redirect('/');
         }
         return $next($request);
     }

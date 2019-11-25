@@ -30,8 +30,7 @@ class InfoController extends Controller
     {
         $name=$request->input('name')??'';
         //var_dump($name);die;
-        $where=[];
-
+        $where = [];
         if(isset($name)){
             $where[]=[
                 'infor_title','like',"%$name%",
@@ -112,7 +111,8 @@ class InfoController extends Controller
     //题库页面
     public function bank(Request $request)
     {
-        return view('/admin/info/bank');
+        $cate_id = $request->input(['cate_id']);
+        return view('/admin/info/bank',['cate_id'=>$cate_id]);
     }
     //题库添加执行
     public function bank_add(Request $request)
@@ -127,7 +127,8 @@ class InfoController extends Controller
                 "tex"=>$tex,
                 "problem"=>$req['problem'],
                 "add_time"=>time(),
-                "type"=>$req['type']
+                "type"=>$req['type'],
+                'cate_id'=>$req['cate_id']
             ]);
         }elseif($req['type'] == 2){
             $pro_text='';
@@ -143,26 +144,29 @@ class InfoController extends Controller
                 "tex"=>$tex,
                 "problem"=>$req['problem'],
                 "add_time"=>time(),
-                 "type"=>$req['type']
+                 "type"=>$req['type'],
+                'cate_id'=>$req['cate_id']
             ]);
         }elseif($req['type'] == 3){
             $data=DB::table('bank_problem')->insert([
                 "pro_text"=> $req['pro_text'],
                 "problem"=>$req['problem'],
                 "add_time"=>time(),
-                "type"=>$req['type']
+                "type"=>$req['type'],
+                'cate_id'=>$req['cate_id']
             ]);
         }
         if($data){
-            echo "<script>alert('添加成功'),location.href='bank_list'</script>";
+            return redirect("info/bank_list?cate_id={$req['cate_id']}");
         }else{
             echo "<script>alert('添加失败')</script>";
         }
     }
-    public function bank_list()
+    public function bank_list(Request $request)
     {
-        $res=DB::table('bank_problem')->where(['is_del'=>1])->paginate(5);
-        return  view('/admin/info/bank_list',['res'=>$res]);
+        $cate_id=$request->input('cate_id')??'';
+        $res=DB::table('bank_problem')->where([['is_del','=',1],['cate_id','=',$cate_id]])->paginate(5);
+        return  view('/admin/info/bank_list',['res'=>$res,'cate_id'=>$cate_id]);
     }
     public function bank_xiang(Request $request)
     {
@@ -184,7 +188,7 @@ class InfoController extends Controller
             "pro_text"=>$data['pro_text'],
         ]);
         if($res){
-            echo "<script>alert('修改成功'),location.href='bank_list'</script>";
+            echo "<script>alert('修改成功,请刷新列表'),history.go(-2)</script>";
         }else{
             echo "<script>alert('修改失败'),location.href='bank_list'</script>";
         }
@@ -192,7 +196,7 @@ class InfoController extends Controller
 
     public function del(Request $request)
     {
-        $bank_id=$request->input('bank_id');
+        $bank_id=$request->input('bank_id')??'';
         $data=DB::table('bank_problem')->where(['bank_id'=>$bank_id])->update([
             "is_del"=>0,
         ]);
@@ -219,7 +223,7 @@ class InfoController extends Controller
             "problem"=>$data['problem'],
         ]);
         if($res){
-            echo "<script>alert('修改成功'),location.href='bank_list'</script>";
+            echo "<script>alert('修改成功,请刷新列表'),history.go(-2)</script>";die;
         }else{
             echo "<script>alert('修改失败'),location.href='bank_list'</script>";
         }
