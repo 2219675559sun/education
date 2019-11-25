@@ -173,8 +173,12 @@ class CourseController extends Controller
 //课程列表
     public function index_course(Request $request){
         $data=$request->all()??'';
-        $where=[];
-        $wheres=[];
+        $lecturer_user_id = session('lecturer_user_id');
+        if($lecturer_user_id == null){
+            echo"<script>alert('请讲师登录');history.go(-1)</script>";die;
+        }
+        $where[] = ['course.lecturer_user_id','=',$lecturer_user_id];
+        $wheres = [];
         if(isset($data['is_free'])){
             $cou_name=$data['cou_name']??'';
             $is_free=$data['is_free']??'';
@@ -183,42 +187,51 @@ class CourseController extends Controller
 //      dump($cou_status);
         if(!empty($data['cou_name'])){
             $where=[
-                ['course.cou_name','like',"%{$data['cou_name']}%"]
+                ['course.cou_name','like',"%{$data['cou_name']}%"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
             $wheres=[
-                ['category.cate_name','like',"%{$data['cou_name']}%"]
+                ['category.cate_name','like',"%{$data['cou_name']}%"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
         }
             if(!empty($data['cou_name']) && $data['is_free']!=0 ){
             $where=[
                 ['course.is_free','=',"{$data['is_free']}"],
                 ['course.cou_name','like',"%{$data['cou_name']}%"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
 
             ];
             $wheres=[
                 ['category.cate_name','like',"%{$data['cou_name']}%"],
                 ['course.is_free','=',"{$data['is_free']}"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
         }elseif(!empty($data['cou_name']) && $data['cou_status']!=0){
             $where=[
                 ['course.cou_name','like',"%{$data['cou_name']}%"],
                 ['course.cou_status','=',"{$data['cou_status']}"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
             $wheres=[
                 ['category.cate_name','like',"%{$data['cou_name']}%"],
                 ['course.cou_status','=',"{$data['cou_status']}"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
         }elseif($data['is_free']!=0 && $data['cou_status']!=0){
             $where=[
                 ['course.is_free','=',"{$data['is_free']}"],
-                ['course.cou_status','=',"{$data['cou_status']}"]
+                ['course.cou_status','=',"{$data['cou_status']}"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
         }elseif($data['is_free']!=0 || $data['cou_status']!=0){
             $where=[
-                ['course.is_free','=',"{$data['is_free']}"]
+                ['course.is_free','=',"{$data['is_free']}"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
             $wheres=[
-                ['course.cou_status','=',"{$data['cou_status']}"]
+                ['course.cou_status','=',"{$data['cou_status']}"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
         }
 
@@ -227,11 +240,13 @@ class CourseController extends Controller
                 ['course.cou_name','like',"%{$data['cou_name']}%"],
                 ['course.is_free','=',"{$data['is_free']}"],
                 ['course.cou_status','=',"{$data['cou_status']}"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
             $wheres=[
                 ['category.cate_name','like',"%{$data['cou_name']}%"],
                 ['course.is_free','=',"{$data['is_free']}"],
                 ['course.cou_status','=',"{$data['cou_status']}"],
+                ['course.lecturer_user_id','=',$lecturer_user_id]
             ];
         }
         }else{

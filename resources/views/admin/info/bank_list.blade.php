@@ -1,5 +1,10 @@
 @extends('admin/common')
 @section('body')
+    <br> <br> <br>
+    <h4>
+        <button id="button" class="btn btn-primary">返回</button>&nbsp
+        <a href="{{url('info/bank')}}?cate_id={{$cate_id}}" class="btn btn-info">添加题库</a>
+    </h4>&nbsp
 <div class="table-responsive">
     <center>
         <h3>题库列表</h3>
@@ -42,19 +47,24 @@
 <script src="/admin/js/jquery.min.js"></script>
 @section('script')
     <script>
+        $('#button').click(function(){
+            window.history.go(-1);
+        })
+    </script>
+    <script>
         $(function(){
             $('.del').click(function(){
                 $(this).parent().parent().remove();
                 var  bank_id=$(this).attr('value');
                 $.ajax({
-                    url:'http://www.education.com/info/del',
+                    url:'del',
                     type:'get',
                     data:{bank_id:bank_id},
                     dataType:'json',
                     success:function(res){
                         if(res.code==1){
                             alert(res.msg);
-                            location.href='bank_list';
+                            window.location.reload();
                         }else{
                             alert(res.msg);
                         }

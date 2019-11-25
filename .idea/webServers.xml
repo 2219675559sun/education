@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="5c71fec1-d7f7-4b53-8ce5-7dbd57352293" name="one.vizhiguo.com" url="http://47.100.121.85">
-        <fileTransfer host="47.100.121.85" port="22" accessType="FTPS">
+      <webServer id="d7a20407-cb44-4fbf-ac9b-63b06a603311" name="one.vizhiguo.com" url="http://47.100.121.85">
+        <fileTransfer host="47.100.121.85" port="22" rootFolder="/data/wwwroot/default/education/public" accessType="SFTP">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

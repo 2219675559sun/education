@@ -22,8 +22,11 @@
                     </td>
                     <td>{{$v['pid']==0?'一级分类':'二级分类'}}</td>
                     <td>
+                        <a href="{{url('info/bank_list')}}?cate_id={{$v['cate_id']}}" class="btn btn-success">查看题库</a>&nbsp
                         <a href="{{url('admin/update_category')}}?cate_id={{$v['cate_id']}}" class="btn btn-info">编辑课程</a>&nbsp&nbsp
                         <a href="{{url('admin/delete_category')}}?cate_id={{$v['cate_id']}}" class="btn btn-default btn-danger">删除</a>
+
+
                     </td>
                 </tr>
             @endforeach
