@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a12ae42a-2774-4ed9-a960-f35326d665a6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/CourseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/CourseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/admin/InfoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/admin/InfoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/common.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/common.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/course/list_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/course/list_category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/info/bank.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/info/bank.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/info/bank_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/info/bank_list.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -464,12 +456,12 @@
       <workItem from="1574471101638" duration="17131000" />
       <workItem from="1574597365401" duration="5074000" />
       <workItem from="1574649641208" duration="4430000" />
-      <workItem from="1574660379397" duration="3185000" />
+      <workItem from="1574660379397" duration="4165000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185635000" />
+    <option name="totallyTimeSpent" value="186615000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -482,6 +474,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1883378" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -496,7 +489,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.33002833" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.33002833" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
